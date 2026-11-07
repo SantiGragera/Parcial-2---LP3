@@ -1,0 +1,49 @@
+@page
+@model ParcialLP3.Pages.IndexModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<section class="hero p-4 p-md-5 rounded">
+    <div class="row align-items-center g-4">
+        <div class="col-12 col-md-7 text-center text-md-start">
+            <h1 class="display-5">Asesoría Legal Global</h1>
+            <p class="lead">Asesoramiento legal profesional y gestión segura de tus documentos.</p>
+            <a class="btn btn-legal btn-lg" asp-page="/Registro">Registrarme como cliente</a>
+        </div>
+        <div class="col-12 col-md-5 text-center">
+            <img src="~/imagenes/logo-principal.png" alt="Logo de la empresa" class="img-fluid rounded imagen-hero" />
+        </div>
+    </div>
+</section>
+
+<section class="mt-4">
+    <img src="~/imagenes/banner.png" alt="Asesoría Legal" class="img-fluid w-100 rounded shadow-sm" />
+</section>
+
+<section class="row mt-4 g-3">
+    <div class="col-12 col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Asesoramiento</h5>
+                <p class="card-text">Consultas en temas legales con un equipo especializado.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Registro simple</h5>
+                <p class="card-text">Creá tu cuenta de cliente en pocos pasos.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Documentos seguros</h5>
+                <p class="card-text">Subí y administrá tus documentos legales en tu espacio personal.</p>
+            </div>
+        </div>
+    </div>
+</section>

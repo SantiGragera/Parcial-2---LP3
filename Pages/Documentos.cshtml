@@ -1,0 +1,70 @@
+@page
+@model ParcialLP3.Pages.DocumentosModel
+@{
+    ViewData["Title"] = "Mis documentos";
+}
+
+<h2 class="mb-3">Espacio de documentos de @Model.Usuario</h2>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h5 class="card-title">Cargar documento</h5>
+
+        @if (!string.IsNullOrEmpty(Model.Mensaje))
+        {
+            <div class="alert @(Model.Exito ? "alert-success" : "alert-danger")">@Model.Mensaje</div>
+        }
+
+        <form method="post" enctype="multipart/form-data" asp-page-handler="Subir">
+            <div class="mb-3">
+                <label asp-for="Archivo" class="form-label">Archivo (PDF, Word, Excel, JPG o PNG - máximo 5 MB)</label>
+                <input asp-for="Archivo" type="file" class="form-control" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" />
+            </div>
+            <button type="submit" class="btn btn-legal">Subir documento</button>
+        </form>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h5 class="card-title">Documentos cargados</h5>
+
+        @if (Model.Documentos.Count == 0)
+        {
+            <p class="text-muted mb-0">Todavía no cargaste ningún documento.</p>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-striped align-middle">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tamaño</th>
+                            <th>Fecha</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var doc in Model.Documentos)
+                        {
+                            <tr>
+                                <td>
+                                    <a href="~/documentos/@Model.CarpetaSegura/@Uri.EscapeDataString(doc.Nombre)" target="_blank">@doc.Nombre</a>
+                                </td>
+                                <td>@((doc.Tamano / 1024.0).ToString("N1")) KB</td>
+                                <td>@doc.Fecha.ToString("dd/MM/yyyy HH:mm")</td>
+                                <td class="text-end">
+                                    <form method="post" asp-page-handler="Borrar" class="d-inline">
+                                        <input type="hidden" name="nombreArchivo" value="@doc.Nombre" />
+                                        <button type="submit" class="btn btn-outline-danger btn-sm">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,70 @@
+:root {
+    --color-legal: #1f3a5f;
+    --color-legal-claro: #2c5282;
+    --color-dorado: #c9a227;
+}
+
+body {
+    background-color: #f5f6f8;
+}
+
+.bg-legal {
+    background-color: var(--color-legal);
+}
+
+.logo-empresa {
+    height: 40px;
+    width: auto;
+}
+
+.imagen-hero {
+    max-height: 220px;
+    background-color: #fff;
+    padding: 0.5rem;
+}
+
+.btn-legal {
+    background-color: var(--color-dorado);
+    border-color: var(--color-dorado);
+    color: #1b1b1b;
+    font-weight: 600;
+}
+
+.btn-legal:hover {
+    background-color: #b08d1f;
+    border-color: #b08d1f;
+    color: #fff;
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--color-legal), var(--color-legal-claro));
+    color: #fff;
+}
+
+.footer-legal {
+    background-color: var(--color-legal);
+    color: #e6e9ef;
+    font-size: 0.9rem;
+}
+
+.card {
+    border: none;
+}
+
+.field-validation-error {
+    font-size: 0.875rem;
+}
+
+.input-validation-error {
+    border-color: #dc3545;
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .navbar-brand span {
+        font-size: 1rem;
+    }
+}
